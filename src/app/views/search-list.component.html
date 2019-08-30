@@ -1,0 +1,16 @@
+
+<div *ngIf="lists.length!=0; else elseBlock">
+  <div class="centered paddingTop">
+    <input type="text" [(ngModel)] = "searchText" class="" placeholder=" Search"/>
+  </div>
+  <ul class="ipgList">
+    <ng-container *ngFor="let list of lists | filter: searchText">
+      <li (click)=" onClickList(list);activeList = list;" 
+          [ngClass]="{'active': activeList === list}" routerLinkActive="active" > {{ list.name }} 
+      </li>
+    </ng-container>
+  </ul>
+</div>
+<ng-template #elseBlock>
+    <div class="centered paddingTop">No records found</div>
+</ng-template>
