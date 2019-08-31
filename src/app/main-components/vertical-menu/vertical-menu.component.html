@@ -1,0 +1,10 @@
+<ul #ulElement class="vertical-menu">
+  <li *ngFor="let option of options" (click)="optionSelect(option.name)">
+    <a [routerLink]="option.link"
+    [queryParams]=""  routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">
+      <!-- <img *ngIf="option.imageUrl && option.imageUrl != ''" [src]="option.imageUrl"> -->
+      <span #element *ngIf="option.imageUrl && option.imageUrl != ''" class="icon disabled" [ngStyle]="{'background':'url('+option.imageUrl+')' }" ></span>
+      {{option.name}}
+    </a>
+  </li>
+</ul>
